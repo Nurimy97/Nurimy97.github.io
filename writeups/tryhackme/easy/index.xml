@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Easy on Nurimy&#39;s blog</title>
+    <link>//localhost:1313/writeups/tryhackme/easy/</link>
+    <description>Recent content in Easy on Nurimy&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Nurimy</copyright>
+    <lastBuildDate>Tue, 11 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/writeups/tryhackme/easy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rootme</title>
+      <link>//localhost:1313/writeups/tryhackme/easy/rootme/</link>
+      <pubDate>Tue, 11 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/writeups/tryhackme/easy/rootme/</guid>
+      <description>Enumeration The first is to know which operating system has the server.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/easy/rootme/featured.png" />
+    </item>
+    
+    <item>
+      <title>Basic Pentesting</title>
+      <link>//localhost:1313/writeups/tryhackme/easy/basic-pentesting/</link>
+      <pubDate>Sat, 08 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/writeups/tryhackme/easy/basic-pentesting/</guid>
+      <description>## Enumeration *** As always, the first thing to do is enumerate the ports to see what services are actually running in the machine/server.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/easy/basic-pentesting/featured.png" />
+    </item>
+    
+  </channel>
+</rss>
