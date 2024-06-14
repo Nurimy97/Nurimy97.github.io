@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Nurimy</copyright>
-    <lastBuildDate>Tue, 11 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mr Robot</title>
+      <link>//localhost:1313/writeups/tryhackme/medium/mrrobot/</link>
+      <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/writeups/tryhackme/medium/mrrobot/</guid>
+      <description>Enumeration Firstly, is to see if the machine is running and which operating system is using basing it on the TTL.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/medium/mrrobot/featured.png" />
+    </item>
+    
     <item>
       <title>Rootme</title>
       <link>//localhost:1313/writeups/tryhackme/easy/rootme/</link>

@@ -605,45 +605,6 @@
   </div>
 </details>
 
- 
-<script>
-  (function () {
-    var $toc = $('#TableOfContents');
-    if ($toc.length > 0) {
-      var $window = $(window);
-
-      function onScroll() {
-        var currentScroll = $window.scrollTop();
-        var h = $('.anchor');
-        var id = "";
-        h.each(function (i, e) {
-          e = $(e);
-          if (e.offset().top - $(window).height()/3 <= currentScroll) {
-            id = decodeURIComponent(e.attr('id'));
-          }
-        });
-        var active = $toc.find('a.active');      
-        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
-
-        active.each(function (i, e) {
-          
-            $(e).removeClass('active');
-          
-        });
-        $toc.find('a[href="#' + id + '"]').addClass('active')
-        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-          $(e).children('a').parents('ul').show();          
-        });
-      }
-
-      $window.on('scroll', onScroll);
-      $(document).ready(function () {
-        
-        onScroll();
-      });
-    }
-  })();
-</script>
 
    </div>
       </div>
@@ -779,7 +740,7 @@ We&rsquo;ve <strong>ssh and http</strong> so we&rsquo;ll run the whatweb to see 
       
     </figure>
 </p>
-<p>In the another page <strong>panel</strong>, we can upload files like a <strong>php reverse shell</strong>, maybe it&rsquo;l work because it uses <strong>PHPSESSID cookies</strong> and that means that the page uses php.</p>
+<p>In the another page <strong>panel</strong>, we can upload files like a <strong>php reverse shell</strong>, maybe it&rsquo;ll work because it uses <strong>PHPSESSID cookies</strong> and that means that the page uses php.</p>
 <p>
     <figure>
       <img

