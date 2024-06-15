@@ -11,7 +11,7 @@
     <item>
       <title>Anonymous</title>
       <link>//localhost:1313/writeups/tryhackme/medium/anonymous/</link>
-      <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/writeups/tryhackme/medium/anonymous/</guid>
       <description>Enumeration In first place we&amp;rsquo;re doing a ping to check if the machine is running and to know the OS.</description>
