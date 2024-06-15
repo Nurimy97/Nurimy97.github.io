@@ -9,6 +9,16 @@
     <copyright>© 2024 Nurimy</copyright>
     <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/writeups/tryhackme/medium/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Anonymous</title>
+      <link>//localhost:1313/writeups/tryhackme/medium/anonymous/</link>
+      <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/writeups/tryhackme/medium/anonymous/</guid>
+      <description>Enumeration In first place we&amp;rsquo;re doing a ping to check if the machine is running and to know the OS.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/medium/anonymous/featured.png" />
+    </item>
+    
+    <item>
       <title>Mr Robot</title>
       <link>//localhost:1313/writeups/tryhackme/medium/mrrobot/</link>
       <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
