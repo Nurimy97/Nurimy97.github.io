@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Nurimy</copyright>
-    <lastBuildDate>Sat, 15 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Sudo</title>
+      <link>//localhost:1313/writeups/tryhackme/easy/agent-sudo/</link>
+      <pubDate>Mon, 17 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/writeups/tryhackme/easy/agent-sudo/</guid>
+      <description>Enumeration Firstly, we do a ping to see if the machine is active.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/easy/agent-sudo/featured.png" />
+    </item>
+    
     <item>
       <title>Anonymous</title>
       <link>//localhost:1313/writeups/tryhackme/medium/anonymous/</link>
@@ -24,7 +34,7 @@
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/writeups/tryhackme/easy/bounty-hacker/</guid>
-      <description>Enumeration Firstly, we&amp;rsquo;re doing a ping to see if the machine is running and to know the OS based on the ttl.</description>
+      <description>Enumeration Firstly, we&amp;rsquo;re doing a ping to see if the machine is running.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/featured.png" />
     </item>
     
