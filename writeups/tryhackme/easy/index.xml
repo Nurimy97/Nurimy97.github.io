@@ -14,7 +14,7 @@
       <pubDate>Mon, 17 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/writeups/tryhackme/easy/agent-sudo/</guid>
-      <description>Enumeration Firstly, we do a ping to see if the machine is active.</description>
+      <description>Enumeración Para empezar, hacemos un ping para ver si la máquina está activa.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/easy/agent-sudo/featured.png" />
     </item>
     
@@ -24,7 +24,7 @@
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/writeups/tryhackme/easy/bounty-hacker/</guid>
-      <description>Enumeration Firstly, we&amp;rsquo;re doing a ping to see if the machine is running.</description>
+      <description>Enumeración Para empezar, hacemos un ping para ver si la máquina está activa.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/easy/bounty-hacker/featured.png" />
     </item>
     
@@ -34,7 +34,7 @@
       <pubDate>Tue, 11 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/writeups/tryhackme/easy/rootme/</guid>
-      <description>Enumeration The first is to know which operating system has the server.</description>
+      <description>Enumeración Lo primero que hay que saber es que sistema operativo tiene la máquina.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/easy/rootme/featured.png" />
     </item>
     
@@ -44,7 +44,7 @@
       <pubDate>Sat, 08 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/writeups/tryhackme/easy/basic-pentesting/</guid>
-      <description>Enumeration As always, the first thing to do is enumerate the ports to see what services are actually running in the machine/server.</description>
+      <description>Enumeración Lo primero es enumerar los puertos para ver que servicios están activos en la máquina con nmap.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/easy/basic-pentesting/featured.png" />
     </item>
     

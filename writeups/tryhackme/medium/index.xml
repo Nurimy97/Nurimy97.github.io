@@ -14,7 +14,7 @@
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/writeups/tryhackme/medium/anonymous/</guid>
-      <description>Enumeration In first place we&amp;rsquo;re doing a ping to check if the machine is running and to know the OS.</description>
+      <description>Enumeración En primer lugar hacemos un ping para ver si la máquina está activa.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/medium/anonymous/featured.png" />
     </item>
     
@@ -24,7 +24,7 @@
       <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/writeups/tryhackme/medium/mrrobot/</guid>
-      <description>Enumeration Firstly, is to see if the machine is running and which operating system is using basing it on the TTL.</description>
+      <description>Enumeración Para empezar, hacemos un ping a la máquina para ver si está activa y saber que sistema operativo tiene basándonos en el TTL.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/writeups/tryhackme/medium/mrrobot/featured.png" />
     </item>
     
